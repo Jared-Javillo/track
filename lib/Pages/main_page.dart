@@ -4,7 +4,7 @@ import 'package:codepan/widgets/icon.dart';
 import 'package:codepan/widgets/page_builder.dart';
 import 'package:codepan/widgets/text.dart';
 import 'package:flutter/material.dart';
-import 'package:track/Pages/home_page.dart';
+import 'package:track/Pages/track_page.dart';
 import 'package:track/colors.dart';
 import 'package:codepan/widgets/page_builder.dart';
 
@@ -94,87 +94,86 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       body: PageBuilder(
-      behaviour: PageScrollBehaviour.none,
-      builder: (context) {
-        return IndexedStack(
-          index: _index,
-          children: const [
-            HomePage(),
-            HomePage(),
-            HomePage(),
-            HomePage(),
-            HomePage(),
-          ],
-        );
-      },
-      extendBody: false,
-      bottomNavigationBar: SafeArea(
-        child: SizedBox(
-          height: d.at(60),
-          child: BottomNavigationBar(
-            type:  BottomNavigationBarType.fixed,
-            showUnselectedLabels: true,
-            currentIndex: _index,
-            selectedLabelStyle: TextStyle(
-              fontSize: d.at(9),
-              color: AppColors.blueShadow,
-              fontWeight: FontWeight.w600,
-            ),
-            unselectedLabelStyle: TextStyle(
-              fontSize: d.at(9),
-              color: AppColors.blueShadow,
-              fontWeight: FontWeight.w600,
-            ),
-            onTap: (index) {
-              setState(() {
-                _index = index;
-              });
-            },
-            items: <BottomNavigationBarItem>[
-              _TabBarItem(
-                context: context,
-                item: 'home',
-                width: d.at(36),
-                height: d.at(36),
-                text: 'Home',
-              ),
-              _TabBarItem(
-                context: context,
-                item: 'todo',
-                width: d.at(18),
-                height: d.at(18),
-                text: 'To-do',
-              ),
-              _TabBarItem(
-                context: context,
-                item: 'chart_line',
-                width: d.at(18),
-                height: d.at(18),
-                text: 'Track',
-              ),
-              _TabBarItem(
-                context: context,
-                item: 'user_multiple',
-                width: d.at(18),
-                height: d.at(18),
-                text: 'Engage',
-              ),
-              _TabBarItem(
-                context: context,
-                item: 'more',
-                width: d.at(15),
-                height: d.at(15),
-                text: 'More',
-              ),
+        behaviour: PageScrollBehaviour.none,
+        builder: (context) {
+          return IndexedStack(
+            index: _index,
+            children: const [
+              TrackPage(),
+              TrackPage(),
+              TrackPage(),
+              TrackPage(),
+              TrackPage(),
             ],
+          );
+        },
+        extendBody: false,
+        bottomNavigationBar: SafeArea(
+          child: SizedBox(
+            height: d.at(60),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              showUnselectedLabels: true,
+              currentIndex: _index,
+              selectedLabelStyle: TextStyle(
+                fontSize: d.at(9),
+                color: AppColors.blueShadow,
+                fontWeight: FontWeight.w600,
+              ),
+              unselectedLabelStyle: TextStyle(
+                fontSize: d.at(9),
+                color: AppColors.blueShadow,
+                fontWeight: FontWeight.w600,
+              ),
+              onTap: (index) {
+                setState(() {
+                  _index = index;
+                });
+              },
+              items: <BottomNavigationBarItem>[
+                _TabBarItem(
+                  context: context,
+                  item: 'home',
+                  width: d.at(36),
+                  height: d.at(36),
+                  text: 'Home',
+                ),
+                _TabBarItem(
+                  context: context,
+                  item: 'todo',
+                  width: d.at(18),
+                  height: d.at(18),
+                  text: 'To-do',
+                ),
+                _TabBarItem(
+                  context: context,
+                  item: 'chart_line',
+                  width: d.at(18),
+                  height: d.at(18),
+                  text: 'Track',
+                ),
+                _TabBarItem(
+                  context: context,
+                  item: 'user_multiple',
+                  width: d.at(18),
+                  height: d.at(18),
+                  text: 'Engage',
+                ),
+                _TabBarItem(
+                  context: context,
+                  item: 'more',
+                  width: d.at(15),
+                  height: d.at(15),
+                  text: 'More',
+                ),
+              ],
+            ),
           ),
         ),
       ),
-    ),
     );
   }
 }
-
 
 class _TabBarItem extends BottomNavigationBarItem {
   _TabBarItem({
@@ -184,28 +183,28 @@ class _TabBarItem extends BottomNavigationBarItem {
     required double height,
     String? text,
   }) : super(
-    icon: _TabItemContainer(
-      child: PanIcon(
-        icon: item,
-        width: width,
-        height: height,
-        fit: BoxFit.fill,
-        alignment: Alignment.bottomCenter,
-        color: Theme.of(context).disabledColor,
-      ),
-    ),
-    activeIcon: _TabItemContainer(
-      child: PanIcon(
-        fit: BoxFit.fill,
-        icon: item,
-        width: width,
-        height: height,
-        alignment: Alignment.bottomCenter,
-        color: Theme.of(context).primaryColor,
-      ),
-    ),
-    label: text,
-  );
+          icon: _TabItemContainer(
+            child: PanIcon(
+              icon: item,
+              width: width,
+              height: height,
+              fit: BoxFit.fill,
+              alignment: Alignment.bottomCenter,
+              color: Theme.of(context).disabledColor,
+            ),
+          ),
+          activeIcon: _TabItemContainer(
+            child: PanIcon(
+              fit: BoxFit.fill,
+              icon: item,
+              width: width,
+              height: height,
+              alignment: Alignment.bottomCenter,
+              color: Theme.of(context).primaryColor,
+            ),
+          ),
+          label: text,
+        );
 }
 
 class _TabItemContainer extends StatelessWidget {
