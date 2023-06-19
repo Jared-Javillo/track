@@ -150,6 +150,7 @@ class _SideScrollableButtonWidgetState
   void initState() {
     super.initState();
     _selections = List<bool>.filled(widget.buttonList.length, false);
+    _selections[1] = true;
   }
 
   @override
@@ -485,206 +486,34 @@ class _ExceptionReportCardState extends State<ExceptionReportCard> {
                 ],
               ), //Exception
               SizedBox(height: d.at(24)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      PanIcon(
-                        icon: 'exclamation_red',
-                        width: d.at(28),
-                        height: d.at(28),
-                        alignment: Alignment.center,
-                      ),
-                      SizedBox(
-                        width: d.at(10),
-                      ),
-                      PanText(
-                        text: 'Late employees',
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        fontSize: d.at(12),
-                        fontColor: AppColors.blueFont,
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: d.at(7)),
-                    child: Row(
-                      children: [
-                        PanText(
-                          text: '18',
-                          fontFamily: 'Poppins',
-                          fontSize: d.at(16),
-                          fontWeight: FontWeight.w700,
-                          fontColor: AppColors.blueFont,
-                        ),
-                        SizedBox(
-                          width: d.at(10),
-                        ),
-                        PanIcon(
-                          icon: 'chevron_right',
-                          width: d.at(5.7),
-                          height: d.at(10),
-                          color: AppColors.grey300,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+              const CardItem(
+                icon: 'exclamation_red',
+                label: 'Late employees',
+                value: '18',
               ), //Late employees
               SizedBox(height: d.at(16)),
               const Divider(),
               SizedBox(height: d.at(16)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      PanIcon(
-                        icon: 'low_accuracy_red',
-                        width: d.at(28),
-                        height: d.at(28),
-                        alignment: Alignment.center,
-                      ),
-                      SizedBox(
-                        width: d.at(10),
-                      ),
-                      PanText(
-                        text: 'Low photo accuracy',
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        fontSize: d.at(12),
-                        fontColor: AppColors.blueFont,
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: d.at(7)),
-                    child: Row(
-                      children: [
-                        PanText(
-                          text: '0',
-                          fontFamily: 'Poppins',
-                          fontSize: d.at(16),
-                          fontWeight: FontWeight.w700,
-                          fontColor: AppColors.blueFont,
-                        ),
-                        SizedBox(
-                          width: d.at(10),
-                        ),
-                        PanIcon(
-                          icon: 'chevron_right',
-                          width: d.at(5.7),
-                          height: d.at(10),
-                          color: AppColors.grey300,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+              const CardItem(
+                icon: 'low_accuracy_red',
+                label: 'Low photo accuracy',
+                value: '1',
               ), //Low photo accuracy
               SizedBox(height: d.at(16)),
               const Divider(),
               SizedBox(height: d.at(16)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      PanIcon(
-                        icon: 'mismatch_red',
-                        width: d.at(28),
-                        height: d.at(28),
-                        alignment: Alignment.center,
-                      ),
-                      SizedBox(
-                        width: d.at(10),
-                      ),
-                      PanText(
-                        text: 'Location Mismatch',
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        fontSize: d.at(12),
-                        fontColor: AppColors.blueFont,
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: d.at(7)),
-                    child: Row(
-                      children: [
-                        PanText(
-                          text: '1',
-                          fontFamily: 'Poppins',
-                          fontSize: d.at(16),
-                          fontWeight: FontWeight.w700,
-                          fontColor: AppColors.blueFont,
-                        ),
-                        SizedBox(
-                          width: d.at(10),
-                        ),
-                        PanIcon(
-                          icon: 'chevron_right',
-                          width: d.at(5.7),
-                          height: d.at(10),
-                          color: AppColors.grey300,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+              const CardItem(
+                icon: 'mismatch_red',
+                label: 'Location mismatch',
+                value: '2',
               ), //Location Mismatch
               SizedBox(height: d.at(16)),
               const Divider(),
               SizedBox(height: d.at(16)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      PanIcon(
-                        icon: 'no_gps_red',
-                        width: d.at(28),
-                        height: d.at(28),
-                        alignment: Alignment.center,
-                      ),
-                      SizedBox(
-                        width: d.at(10),
-                      ),
-                      PanText(
-                        text: 'No GPS',
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        fontSize: d.at(12),
-                        fontColor: AppColors.blueFont,
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: d.at(7)),
-                    child: Row(
-                      children: [
-                        PanText(
-                          text: '2',
-                          fontFamily: 'Poppins',
-                          fontSize: d.at(16),
-                          fontWeight: FontWeight.w700,
-                          fontColor: AppColors.blueFont,
-                        ),
-                        SizedBox(
-                          width: d.at(10),
-                        ),
-                        PanIcon(
-                          icon: 'chevron_right',
-                          width: d.at(5.7),
-                          height: d.at(10),
-                          color: AppColors.grey300,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+              const CardItem(
+                icon: 'no_gps_red',
+                label: 'No GPS',
+                value: '18',
               ), //No GPS
               SizedBox(height: d.at(16)),
             ],
