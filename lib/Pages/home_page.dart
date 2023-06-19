@@ -50,6 +50,28 @@ class _HomePageState extends State<HomePage> {
                   const AttendanceCard(),
                   SizedBox(height: d.at(25)),
                   const ExceptionReportCard(),
+                  SizedBox(height: d.at(25)),
+                  const NonCardItem(
+                    title: 'Time-in Trends',
+                    subtitle: 'less on time today',
+                    value: '10%',
+                    icon: 'plus',
+                  ),
+                  Divider(height: d.at(28.5)),
+                  const NonCardItem(
+                    title: 'Late Trends',
+                    subtitle: 'less on time today',
+                    value: '10%',
+                    icon: 'plus',
+                  ),
+                  Divider(height: d.at(28.5)),
+                  const NonCardItem(
+                    title: 'Overtime Trends',
+                    subtitle: 'less on time today',
+                    value: '10%',
+                    icon: 'plus',
+                  ),
+                  Divider(height: d.at(28.5)),
                 ],
               ),
             ),
@@ -234,260 +256,50 @@ class _AttendanceCardState extends State<AttendanceCard> {
                     height: d.at(20),
                   )
                 ],
-              ), //Attendance
+              ),
+              //Attendance
               SizedBox(height: d.at(24)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      PanIcon(
-                        icon: 'smiley_green',
-                        width: d.at(28),
-                        height: d.at(28),
-                        alignment: Alignment.center,
-                      ),
-                      SizedBox(
-                        width: d.at(10),
-                      ),
-                      PanText(
-                        text: "Timed-in",
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        fontSize: d.at(12),
-                        fontColor: AppColors.blueFont,
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: d.at(7)),
-                    child: Row(
-                      children: [
-                        PanText(
-                          text: '1,245',
-                          fontFamily: 'Poppins',
-                          fontSize: d.at(16),
-                          fontWeight: FontWeight.w700,
-                          fontColor: AppColors.blueFont,
-                        ),
-                        SizedBox(
-                          width: d.at(10),
-                        ),
-                        PanIcon(
-                          icon: 'chevron_right',
-                          width: d.at(5.7),
-                          height: d.at(10),
-                          color: AppColors.grey300,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ), //Timed-In
+              const CardItem(
+                icon: 'smiley_green',
+                label: 'Timed-in',
+                value: '1,245',
+              ),
               SizedBox(height: d.at(16)),
               const Divider(),
               SizedBox(height: d.at(16)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      PanIcon(
-                        icon: 'time_yellow',
-                        width: d.at(28),
-                        height: d.at(28),
-                        alignment: Alignment.center,
-                      ),
-                      SizedBox(
-                        width: d.at(10),
-                      ),
-                      PanText(
-                        text: "Timed-out",
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        fontSize: d.at(12),
-                        fontColor: AppColors.blueFont,
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: d.at(7)),
-                    child: Row(
-                      children: [
-                        PanText(
-                          text: '0',
-                          fontFamily: 'Poppins',
-                          fontSize: d.at(16),
-                          fontWeight: FontWeight.w700,
-                          fontColor: AppColors.blueFont,
-                        ),
-                        SizedBox(
-                          width: d.at(10),
-                        ),
-                        PanIcon(
-                          icon: 'chevron_right',
-                          width: d.at(5.7),
-                          height: d.at(10),
-                          color: AppColors.grey300,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ), //Timed-Out
+              const CardItem(
+                icon: 'time_yellow',
+                label: 'Timed_out',
+                value: '0',
+              ),
+              //Timed-Out
               SizedBox(height: d.at(16)),
               const Divider(),
               SizedBox(height: d.at(16)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      PanIcon(
-                        icon: 'x_orange',
-                        width: d.at(28),
-                        height: d.at(28),
-                        alignment: Alignment.center,
-                      ),
-                      SizedBox(
-                        width: d.at(10),
-                      ),
-                      PanText(
-                        text: 'Absent',
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        fontSize: d.at(12),
-                        fontColor: AppColors.blueFont,
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: d.at(7)),
-                    child: Row(
-                      children: [
-                        PanText(
-                          text: '1',
-                          fontFamily: 'Poppins',
-                          fontSize: d.at(16),
-                          fontWeight: FontWeight.w700,
-                          fontColor: AppColors.blueFont,
-                        ),
-                        SizedBox(
-                          width: d.at(10),
-                        ),
-                        PanIcon(
-                          icon: 'chevron_right',
-                          width: d.at(5.7),
-                          height: d.at(10),
-                          color: AppColors.grey300,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ), //Absent
+              const CardItem(
+                icon: 'x_orange',
+                label: 'Absent',
+                value: '1',
+              ),
+              //Absent
               SizedBox(height: d.at(16)),
               const Divider(),
               SizedBox(height: d.at(16)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      PanIcon(
-                        icon: 'umbrella_blue',
-                        width: d.at(28),
-                        height: d.at(28),
-                        alignment: Alignment.center,
-                      ),
-                      SizedBox(
-                        width: d.at(10),
-                      ),
-                      PanText(
-                        text: 'On Leave',
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        fontSize: d.at(12),
-                        fontColor: AppColors.blueFont,
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: d.at(7)),
-                    child: Row(
-                      children: [
-                        PanText(
-                          text: '2',
-                          fontFamily: 'Poppins',
-                          fontSize: d.at(16),
-                          fontWeight: FontWeight.w700,
-                          fontColor: AppColors.blueFont,
-                        ),
-                        SizedBox(
-                          width: d.at(10),
-                        ),
-                        PanIcon(
-                          icon: 'chevron_right',
-                          width: d.at(5.7),
-                          height: d.at(10),
-                          color: AppColors.grey300,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ), //On Leave
+              const CardItem(
+                icon: 'umbrella_blue',
+                label: 'On leave',
+                value: '2',
+              ),
+              //On Leave
               SizedBox(height: d.at(16)),
               const Divider(),
               SizedBox(height: d.at(16)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      PanIcon(
-                        icon: 'alarm_purple',
-                        width: d.at(28),
-                        height: d.at(28),
-                        alignment: Alignment.center,
-                      ),
-                      SizedBox(
-                        width: d.at(10),
-                      ),
-                      PanText(
-                        text: 'Rest Day',
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        fontSize: d.at(12),
-                        fontColor: AppColors.blueFont,
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: d.at(7)),
-                    child: Row(
-                      children: [
-                        PanText(
-                          text: '1',
-                          fontFamily: 'Poppins',
-                          fontSize: d.at(16),
-                          fontWeight: FontWeight.w700,
-                          fontColor: AppColors.blueFont,
-                        ),
-                        SizedBox(
-                          width: d.at(10),
-                        ),
-                        PanIcon(
-                          icon: 'chevron_right',
-                          width: d.at(5.7),
-                          height: d.at(10),
-                          color: AppColors.grey300,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ), //Rest Day
+              const CardItem(
+                icon: 'alarm_purple',
+                label: 'Rest Day',
+                value: '1',
+              ),
+              //Rest Day
               SizedBox(height: d.at(16)),
             ],
           ),
@@ -497,6 +309,135 @@ class _AttendanceCardState extends State<AttendanceCard> {
   }
 }
 
+class CardItem extends StatelessWidget {
+  final String icon, label, value;
+
+  const CardItem({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final d = Dimension.of(context);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            PanIcon(
+              icon: icon,
+              width: d.at(28),
+              height: d.at(28),
+              alignment: Alignment.center,
+            ),
+            SizedBox(
+              width: d.at(10),
+            ),
+            PanText(
+              text: label,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w500,
+              fontSize: d.at(12),
+              fontColor: AppColors.blueFont,
+            )
+          ],
+        ),
+        Padding(
+          padding: EdgeInsets.only(right: d.at(7)),
+          child: Row(
+            children: [
+              PanText(
+                text: value,
+                fontFamily: 'Poppins',
+                fontSize: d.at(16),
+                fontWeight: FontWeight.w700,
+                fontColor: AppColors.blueFont,
+              ),
+              SizedBox(
+                width: d.at(10),
+              ),
+              PanIcon(
+                icon: 'chevron_right',
+                width: d.at(5.7),
+                height: d.at(10),
+                color: AppColors.grey300,
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class NonCardItem extends StatelessWidget {
+  final String title, subtitle, icon, value;
+
+  const NonCardItem({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.value,
+    required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final d = Dimension.of(context);
+    return Padding(
+      padding: EdgeInsets.all(d.at(8.0)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              PanText(
+                text: title,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
+                fontSize: d.at(16),
+                fontColor: AppColors.blueFont,
+              ),
+              SizedBox(
+                height: d.at(10),
+              ),
+              Row(
+                  children: [
+                    PanText(
+                      text: value,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w700,
+                      fontSize: d.at(12),
+                      fontColor: AppColors.grey300,
+                    ),
+                    SizedBox(width: d.at(5)),
+                    PanText(
+                      text: subtitle,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400,
+                      fontSize: d.at(12),
+                      fontColor: AppColors.grey300,
+                    ),
+                  ]),
+            ],
+          ),
+          Padding(
+              padding: EdgeInsets.only(right: d.at(7)),
+              child: PanIcon(
+                icon: 'plus',
+                width: d.at(18),
+                height: d.at(18),
+                color: Colors.black,
+              )),
+        ],
+      ),
+    );
+  }
+}
 
 class ExceptionReportCard extends StatefulWidget {
   const ExceptionReportCard({super.key});

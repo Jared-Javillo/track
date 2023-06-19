@@ -4,7 +4,7 @@ import 'package:codepan/widgets/icon.dart';
 import 'package:codepan/widgets/page_builder.dart';
 import 'package:codepan/widgets/text.dart';
 import 'package:flutter/material.dart';
-import 'package:track/Pages/HomePage.dart';
+import 'package:track/Pages/home_page.dart';
 import 'package:track/colors.dart';
 import 'package:codepan/widgets/page_builder.dart';
 
