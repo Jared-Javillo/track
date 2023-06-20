@@ -2,10 +2,9 @@ import 'package:codepan/resources/dimensions.dart';
 import 'package:codepan/widgets/icon.dart';
 import 'package:codepan/widgets/text.dart';
 import 'package:flutter/material.dart';
-import 'package:track/Widgets/card_item.dart';
 import 'package:track/colors.dart';
-
-import '../Widgets/non_card_item.dart';
+import 'package:track/widgets/card_item.dart';
+import 'package:track/widgets/non_card_item.dart';
 
 class AttendancePage extends StatelessWidget {
   const AttendancePage({super.key});

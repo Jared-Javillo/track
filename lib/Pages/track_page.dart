@@ -1,7 +1,8 @@
 import 'package:codepan/resources/dimensions.dart';
 import 'package:codepan/widgets/text.dart';
 import 'package:flutter/material.dart';
-import 'package:track/Pages/attendance_page.dart';
+import 'package:track/Pages/track_attendance_page.dart';
+import 'package:track/Pages/track_sales_page.dart';
 import 'package:track/colors.dart';
 
 class TrackPage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _TrackPageState extends State<TrackPage> {
   final List<Widget> pages = [
     Container(),
     const AttendancePage(),
-    Container(),
+    const TrackSalesPage(),
     Container(),
     Container(),
   ];
@@ -43,7 +44,7 @@ class _TrackPageState extends State<TrackPage> {
       color: Colors.white,
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: d.at(12),
+          horizontal: d.at(24),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,

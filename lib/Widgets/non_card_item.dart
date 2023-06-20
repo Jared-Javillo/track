@@ -6,6 +6,8 @@ import 'package:track/colors.dart';
 
 class NonCardItem extends StatelessWidget {
   final String title, subtitle, icon, value;
+  final double? iconSize, spaceBetween;
+  final Widget? leading;
 
   const NonCardItem({
     super.key,
@@ -13,6 +15,9 @@ class NonCardItem extends StatelessWidget {
     required this.subtitle,
     required this.value,
     required this.icon,
+    this.spaceBetween,
+    this.iconSize,
+    this.leading,
   });
 
   @override
@@ -23,44 +28,48 @@ class NonCardItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
             children: [
-              PanText(
-                text: title,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w600,
-                fontSize: d.at(16),
-                fontColor: AppColors.blueFont,
+              leading ?? Container(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  PanText(
+                    text: title,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w600,
+                    fontSize: d.at(16),
+                    fontColor: AppColors.blueFont,
+                  ),
+                  SizedBox(
+                    height: spaceBetween ?? d.at(10),
+                  ),
+                  Row(children: [
+                    PanText(
+                      text: value,
+                      fontFamily: 'OpenSans',
+                      fontWeight: FontWeight.w700,
+                      fontSize: d.at(12),
+                      fontColor: AppColors.grey300,
+                    ),
+                    PanText(
+                      text: subtitle,
+                      fontFamily: 'OpenSans',
+                      fontWeight: FontWeight.w400,
+                      fontSize: d.at(12),
+                      fontColor: AppColors.grey300,
+                    ),
+                  ]),
+                ],
               ),
-              SizedBox(
-                height: d.at(10),
-              ),
-              Row(children: [
-                PanText(
-                  text: value,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w700,
-                  fontSize: d.at(12),
-                  fontColor: AppColors.grey300,
-                ),
-                SizedBox(width: d.at(5)),
-                PanText(
-                  text: subtitle,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w400,
-                  fontSize: d.at(12),
-                  fontColor: AppColors.grey300,
-                ),
-              ]),
             ],
           ),
           Padding(
               padding: EdgeInsets.only(right: d.at(7)),
               child: PanIcon(
-                icon: 'plus',
-                width: d.at(18),
-                height: d.at(18),
+                icon: icon,
+                width: iconSize ?? d.at(18),
+                height: iconSize ?? d.at(18),
                 color: Colors.black,
               )),
         ],
