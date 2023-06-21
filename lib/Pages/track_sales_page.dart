@@ -5,7 +5,10 @@ import 'package:codepan/widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:track/colors.dart';
+import 'package:track/vector.dart';
+import 'package:track/widgets/bar_chart.dart';
 import 'package:track/widgets/leading_profile_pic.dart';
+import 'package:track/widgets/line_chart.dart';
 import 'package:track/widgets/non_card_item.dart';
 import 'package:track/widgets/sales_card_item.dart';
 import 'package:track/widgets/titled_card_item.dart';
@@ -157,16 +160,16 @@ class TopTenSellingSKUsContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final data = [
-      const ChartData(day: '1', sales: 50),
-      const ChartData(day: '2', sales: 70),
-      const ChartData(day: '3', sales: 72),
-      const ChartData(day: '4', sales: 79),
-      const ChartData(day: '5', sales: 68),
-      const ChartData(day: '6', sales: 84),
-      const ChartData(day: '7', sales: 75),
-      const ChartData(day: '8', sales: 75),
-      const ChartData(day: '9', sales: 75),
-      const ChartData(day: '10', sales: 75),
+      const Vector(x: '1', y: 50),
+      const Vector(x: '2', y: 70),
+      const Vector(x: '3', y: 72),
+      const Vector(x: '4', y: 79),
+      const Vector(x: '5', y: 68),
+      const Vector(x: '6', y: 84),
+      const Vector(x: '7', y: 75),
+      const Vector(x: '8', y: 75),
+      const Vector(x: '9', y: 75),
+      const Vector(x: '10', y: 75),
     ];
     final d = Dimension.of(context);
     return Column(
@@ -174,7 +177,7 @@ class TopTenSellingSKUsContent extends StatelessWidget {
         SizedBox(
           width: d.at(296),
           height: d.at(178),
-          child: SimpleBarChart(data: data),
+          child: BarChart(data: data),
         ),
         const SalesCardItem(
           title: 'Cream Silk Pink',
@@ -532,135 +535,19 @@ class DailySalesTrendContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final d = Dimension.of(context);
     final data = [
-      const ChartData(day: 'MON', sales: 50),
-      const ChartData(day: 'TUE', sales: 70),
-      const ChartData(day: 'WED', sales: 72),
-      const ChartData(day: 'THU', sales: 79),
-      const ChartData(day: 'FRI', sales: 68),
-      const ChartData(day: 'SAT', sales: 84),
-      const ChartData(day: 'SUN', sales: 75),
+      const Vector(x: 'MON', y: 50),
+      const Vector(x: 'TUE', y: 70),
+      const Vector(x: 'WED', y: 72),
+      const Vector(x: 'THU', y: 79),
+      const Vector(x: 'FRI', y: 68),
+      const Vector(x: 'SAT', y: 84),
+      const Vector(x: 'SUN', y: 75),
     ];
-    return Container(
+    return SizedBox(
       width: d.at(296),
       height: d.at(178),
-      child: SimpleLineChart(data: data),
+      child: LineChart(data: data),
     );
   }
 }
 
-class ChartData {
-  final String day;
-  final double sales;
-
-  const ChartData({
-    required this.day,
-    required this.sales,
-  });
-}
-
-class SimpleLineChart extends StatelessWidget {
-  final List<ChartData> data;
-
-  const SimpleLineChart({super.key, required this.data});
-
-  @override
-  Widget build(BuildContext context) {
-    final d = Dimension.of(context);
-    return SfCartesianChart(
-      plotAreaBorderWidth: 0,
-      plotAreaBorderColor: Colors.transparent,
-      primaryXAxis: CategoryAxis(
-        majorTickLines: const MajorTickLines(width: 0),
-        majorGridLines: const MajorGridLines(width: 0),
-        axisLine: const AxisLine(width: 0),
-        labelStyle: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: d.at(8),
-          fontWeight: FontWeight.w400,
-          color: AppColors.grey300,
-        ),
-      ),
-      primaryYAxis: NumericAxis(
-        majorTickLines: const MajorTickLines(width: 0),
-        axisLine: const AxisLine(width: 0),
-        labelStyle: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: d.at(8),
-          fontWeight: FontWeight.w400,
-          color: AppColors.grey300,
-        ),
-      ),
-      series: <SplineAreaSeries<ChartData, String>>[
-        SplineAreaSeries<ChartData, String>(
-          dataSource: data,
-          xValueMapper: (ChartData sales, _) => sales.day,
-          yValueMapper: (ChartData sales, _) => sales.sales,
-          color: AppColors.blueShadow.withOpacity(0.4),
-          borderColor: AppColors.greenFont,
-          borderWidth: d.at(2),
-          markerSettings: const MarkerSettings(
-            isVisible: true,
-            color: AppColors.greenFont,
-            borderColor: AppColors.greenFont,
-            shape: DataMarkerType.circle, // Show the data point markers
-          ),
-        )
-      ],
-    );
-  }
-}
-
-class SimpleBarChart extends StatelessWidget {
-  final List<ChartData> data;
-
-  const SimpleBarChart({super.key, required this.data});
-
-  @override
-  Widget build(BuildContext context) {
-    final d = Dimension.of(context);
-    return SfCartesianChart(
-      plotAreaBorderWidth: 0,
-      plotAreaBorderColor: Colors.transparent,
-      primaryXAxis: CategoryAxis(
-        interval: 1,
-        majorTickLines: const MajorTickLines(width: 0),
-        majorGridLines: const MajorGridLines(width: 0),
-        axisLine: const AxisLine(width: 0),
-        labelStyle: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: d.at(8),
-          fontWeight: FontWeight.w400,
-          color: AppColors.grey300,
-        ),
-      ),
-      primaryYAxis: NumericAxis(
-        majorTickLines: const MajorTickLines(width: 0),
-        axisLine: const AxisLine(width: 0),
-        labelStyle: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: d.at(8),
-          fontWeight: FontWeight.w400,
-          color: AppColors.grey300,
-        ),
-      ),
-      series: <ChartSeries>[
-        ColumnSeries<ChartData, int>(
-          dataSource: data,
-          xValueMapper: (ChartData data, _) => int.parse(data.day),
-          yValueMapper: (ChartData data, _) => data.sales,
-          width: (d.at(0.5)),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(d.at(8)),
-            topRight: Radius.circular(d.at(8)),
-          ),
-          gradient: const LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-            colors: [AppColors.blueGreen, AppColors.greenLite],
-            stops: [0.01, 0.99],
-          ),
-        ),
-      ],
-    );
-  }
-}
