@@ -54,6 +54,7 @@ class TrackSalesPage extends StatelessWidget {
             ),
           ),
           Divider(height: d.at(28.5)),
+          SizedBox(height: d.at(16)),
           const TrackCard(
             title: 'Daily Sales Trend',
             icon: 'hint',
@@ -74,6 +75,7 @@ class TrackSalesPage extends StatelessWidget {
             ),
           ),
           Divider(height: d.at(28.5)),
+          SizedBox(height: d.at(16)),
           const TrackCard(
             title: 'Top 10 Stores by Amount',
             icon: 'hint',
@@ -89,6 +91,7 @@ class TrackSalesPage extends StatelessWidget {
             spaceBetween: 0,
           ),
           Divider(height: d.at(28.5)),
+          SizedBox(height: d.at(16)),
           const TrackCard(
             title: 'Top 10 Stores by Performance',
             icon: 'hint',
@@ -103,9 +106,112 @@ class TrackSalesPage extends StatelessWidget {
             iconSize: d.at(16),
             spaceBetween: 0,
           ),
-          const TopTenAgentsPerformanceContent(),
+          Divider(height: d.at(28.5)),
+          SizedBox(height: d.at(16)),
+          const TrackCard(
+            title: 'Top 10 Agents by Performance',
+            icon: "hint",
+            child: TopTenAgentsPerformanceContent(),
+          ),
+          SizedBox(height: d.at(28.5)),
+          NonCardItem(
+            title: 'Top 10 Agents by Performance',
+            subtitle: ' with 70% of quota',
+            value: 'Christopher Cruz',
+            icon: 'minus',
+            iconSize: d.at(16),
+            spaceBetween: 0,
+          ),
+          Divider(height: d.at(28.5)),
+          SizedBox(height: d.at(16)),
+          const TrackCard(
+            title: 'Top 10 Stores by Performance',
+            icon: "hint",
+            child: TopTenAgentsPerformanceContent(),
+          ),
+          SizedBox(height: d.at(28.5)),
+          NonCardItem(
+            title: 'Top 10 Selling SKUs',
+            subtitle: ' with P 3,032,001',
+            value: 'Cream Silk Pink',
+            icon: 'minus',
+            iconSize: d.at(16),
+            spaceBetween: 0,
+          ),
+          Divider(height: d.at(28.5)),
+          SizedBox(height: d.at(16)),
+          const TrackCard(
+            title: 'Top 10 Selling SKUs',
+            icon: "hint",
+            child: TopTenSellingSKUsContent(),
+          ),
         ],
       ),
+    );
+  }
+}
+
+class TopTenSellingSKUsContent extends StatelessWidget {
+  const TopTenSellingSKUsContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final data = [
+      const ChartData(day: '1', sales: 50),
+      const ChartData(day: '2', sales: 70),
+      const ChartData(day: '3', sales: 72),
+      const ChartData(day: '4', sales: 79),
+      const ChartData(day: '5', sales: 68),
+      const ChartData(day: '6', sales: 84),
+      const ChartData(day: '7', sales: 75),
+      const ChartData(day: '8', sales: 75),
+      const ChartData(day: '9', sales: 75),
+      const ChartData(day: '10', sales: 75),
+    ];
+    final d = Dimension.of(context);
+    return Column(
+      children: [
+        SizedBox(
+          width: d.at(296),
+          height: d.at(178),
+          child: SimpleBarChart(data: data),
+        ),
+        const SalesCardItem(
+          title: 'Cream Silk Pink',
+          spaceBetween: 0,
+          subtitle: '0930010201',
+          value: 'P 3,032,001',
+          valueColor: AppColors.blueFont,
+          leading: 1,
+        ),
+        Divider(height: d.at(16)),
+        const SalesCardItem(
+          title: 'Cream Silk Blue',
+          spaceBetween: 0,
+          subtitle: 'IAKLS099301',
+          value: 'P 3,000,332',
+          valueColor: AppColors.blueFont,
+          leading: 2,
+        ),
+        Divider(height: d.at(16)),
+        const SalesCardItem(
+          title: 'Dove White',
+          spaceBetween: 0,
+          subtitle: 'ALKSDF12451',
+          value: 'P 2,300,001',
+          valueColor: AppColors.blueFont,
+          leading: 3,
+        ),
+        Divider(height: d.at(16)),
+        const SalesCardItem(
+          title: 'Dove Cream',
+          spaceBetween: 0,
+          subtitle: 'SL1100200011',
+          value: 'P 2,220,000',
+          valueColor: AppColors.blueFont,
+          leading: 4,
+        ),
+      ],
     );
   }
 }
@@ -162,15 +268,16 @@ class TopTenAgentsPerformanceContent extends StatelessWidget {
         ),
         Divider(height: d.at(16)),
         const SalesCardItem(
-            title: 'Rhudith Dimabulong',
-            spaceBetween: 0,
-            subtitle: 'Team Inspire',
-            value: '78%',
-            valueColor: AppColors.greenFont,
+          title: 'Rhudith Dimabulong',
+          spaceBetween: 0,
+          subtitle: 'Team Inspire',
+          value: '78%',
+          valueColor: AppColors.greenFont,
           leading: LeadingProfilePic(
-            leadingText: '3',
+            leadingText: '4',
             image: 'rhudith',
-          ),),
+          ),
+        ),
       ],
     );
   }
@@ -498,6 +605,61 @@ class SimpleLineChart extends StatelessWidget {
             shape: DataMarkerType.circle, // Show the data point markers
           ),
         )
+      ],
+    );
+  }
+}
+
+class SimpleBarChart extends StatelessWidget {
+  final List<ChartData> data;
+
+  const SimpleBarChart({super.key, required this.data});
+
+  @override
+  Widget build(BuildContext context) {
+    final d = Dimension.of(context);
+    return SfCartesianChart(
+      plotAreaBorderWidth: 0,
+      plotAreaBorderColor: Colors.transparent,
+      primaryXAxis: CategoryAxis(
+        interval: 1,
+        majorTickLines: const MajorTickLines(width: 0),
+        majorGridLines: const MajorGridLines(width: 0),
+        axisLine: const AxisLine(width: 0),
+        labelStyle: TextStyle(
+          fontFamily: 'Poppins',
+          fontSize: d.at(8),
+          fontWeight: FontWeight.w400,
+          color: AppColors.grey300,
+        ),
+      ),
+      primaryYAxis: NumericAxis(
+        majorTickLines: const MajorTickLines(width: 0),
+        axisLine: const AxisLine(width: 0),
+        labelStyle: TextStyle(
+          fontFamily: 'Poppins',
+          fontSize: d.at(8),
+          fontWeight: FontWeight.w400,
+          color: AppColors.grey300,
+        ),
+      ),
+      series: <ChartSeries>[
+        ColumnSeries<ChartData, int>(
+          dataSource: data,
+          xValueMapper: (ChartData data, _) => int.parse(data.day),
+          yValueMapper: (ChartData data, _) => data.sales,
+          width: (d.at(0.5)),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(d.at(8)),
+            topRight: Radius.circular(d.at(8)),
+          ),
+          gradient: const LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [AppColors.blueGreen, AppColors.greenLite],
+            stops: [0.01, 0.99],
+          ),
+        ),
       ],
     );
   }
