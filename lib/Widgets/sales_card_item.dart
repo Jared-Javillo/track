@@ -52,7 +52,7 @@ class SalesCardItem extends StatelessWidget {
                     children: [
                       titleIcon ?? Container(),
                       FittedBox(
-                        child: Container(
+                        child: SizedBox(
                           width: d.at(160),
                           child: PanText(
                             text: title,
