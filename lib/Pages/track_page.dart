@@ -45,6 +45,7 @@ class _TrackPageState extends State<TrackPage> {
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: d.at(24),
+          vertical: d.at(15)
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -53,6 +54,7 @@ class _TrackPageState extends State<TrackPage> {
             SizedBox(
               height: d.at(30),
               child: SingleChildScrollView(
+                clipBehavior: Clip.none,
                 scrollDirection: Axis.horizontal,
                 child: ToggleButtons(
                   isSelected: _selections,

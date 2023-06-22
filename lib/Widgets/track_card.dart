@@ -48,8 +48,8 @@ class TrackCard extends StatelessWidget {
                 ),
                 PanIcon(
                   icon: icon,
-                  width: d.at(12.25),
-                  height: d.at(12.25),
+                  width: d.at(14),
+                  height: d.at(14),
                 )
               ],
             ),

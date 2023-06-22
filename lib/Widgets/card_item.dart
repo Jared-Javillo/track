@@ -49,7 +49,7 @@ class CardItem extends StatelessWidget {
           ],
         ),
         Padding(
-          padding: EdgeInsets.only(right: d.at(7)),
+          padding: EdgeInsets.only(right: d.at(5)),
           child: Row(
             children: [
               PanText(
@@ -60,7 +60,7 @@ class CardItem extends StatelessWidget {
                 fontColor: AppColors.blueFont,
               ),
               SizedBox(
-                width: d.at(10),
+                width: d.at(12),
               ),
               PanIcon(
                 icon: 'chevron_right',

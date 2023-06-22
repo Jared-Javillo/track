@@ -14,6 +14,7 @@ class AttendancePage extends StatelessWidget {
     return Expanded(
       child: ListView(
         children: [
+          SizedBox(height: d.at(26)),
           const TrackCard(
             title: 'Attendance',
             icon: 'hint',
