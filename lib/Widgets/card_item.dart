@@ -1,4 +1,5 @@
 import 'package:codepan/resources/dimensions.dart';
+import 'package:codepan/widgets/circular.dart';
 import 'package:codepan/widgets/icon.dart';
 import 'package:codepan/widgets/text.dart';
 import 'package:flutter/material.dart';
@@ -6,10 +7,12 @@ import 'package:track/colors.dart';
 
 class CardItem extends StatelessWidget {
   final String icon, label, value;
+  final Color? iconBackgroundColor;
 
   const CardItem({
     super.key,
     required this.icon,
+    this.iconBackgroundColor = AppColors.grey300,
     required this.label,
     required this.value,
   });
@@ -22,11 +25,16 @@ class CardItem extends StatelessWidget {
       children: [
         Row(
           children: [
-            PanIcon(
-              icon: icon,
-              width: d.at(28),
-              height: d.at(28),
-              alignment: Alignment.center,
+            Circular(
+              diameter: d.at(28),
+              color: iconBackgroundColor,
+              padding: EdgeInsets.all(d.at(5)),
+              child: PanIcon(
+                icon: icon,
+                width: d.at(28),
+                height: d.at(28),
+                alignment: Alignment.center,
+              ),
             ),
             SizedBox(
               width: d.at(10),

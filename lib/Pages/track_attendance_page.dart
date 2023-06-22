@@ -1,5 +1,6 @@
 import 'package:codepan/resources/dimensions.dart';
 import 'package:flutter/material.dart';
+import 'package:track/colors.dart';
 import 'package:track/widgets/card_item.dart';
 import 'package:track/widgets/non_card_item.dart';
 import 'package:track/widgets/track_card.dart';
@@ -63,7 +64,8 @@ class AttendanceContent extends StatelessWidget {
       children: [
         SizedBox(height: d.at(24)),
         const CardItem(
-          icon: 'smiley_green',
+          icon: 'smiley',
+          iconBackgroundColor: AppColors.greenFont,
           label: 'Timed-in',
           value: '1,245',
         ),
@@ -71,7 +73,8 @@ class AttendanceContent extends StatelessWidget {
         const Divider(),
         SizedBox(height: d.at(16)),
         const CardItem(
-          icon: 'time_yellow',
+          icon: 'clock',
+          iconBackgroundColor: AppColors.yellowFont,
           label: 'Timed-out',
           value: '0',
         ),
@@ -80,7 +83,8 @@ class AttendanceContent extends StatelessWidget {
         const Divider(),
         SizedBox(height: d.at(16)),
         const CardItem(
-          icon: 'x_orange',
+          icon: 'circle_x',
+          iconBackgroundColor: AppColors.orange1,
           label: 'Absent',
           value: '1',
         ),
@@ -89,7 +93,8 @@ class AttendanceContent extends StatelessWidget {
         const Divider(),
         SizedBox(height: d.at(16)),
         const CardItem(
-          icon: 'umbrella_blue',
+          iconBackgroundColor: AppColors.blueShadow,
+          icon: 'umbrella',
           label: 'On leave',
           value: '2',
         ),
@@ -98,7 +103,8 @@ class AttendanceContent extends StatelessWidget {
         const Divider(),
         SizedBox(height: d.at(16)),
         const CardItem(
-          icon: 'alarm_purple',
+          iconBackgroundColor: AppColors.purple,
+          icon: 'snooze',
           label: 'Rest Day',
           value: '1',
         ),
@@ -121,7 +127,8 @@ class ExceptionReportContent extends StatelessWidget {
         //Exception
         SizedBox(height: d.at(24)),
         const CardItem(
-          icon: 'exclamation_red',
+          icon: 'exclamation',
+          iconBackgroundColor: AppColors.red,
           label: 'Late employees',
           value: '18',
         ), //Late employees
@@ -129,7 +136,8 @@ class ExceptionReportContent extends StatelessWidget {
         const Divider(),
         SizedBox(height: d.at(16)),
         const CardItem(
-          icon: 'low_accuracy_red',
+          icon: 'broken_image',
+          iconBackgroundColor: AppColors.red,
           label: 'Low photo accuracy',
           value: '1',
         ), //Low photo accuracy
@@ -137,7 +145,8 @@ class ExceptionReportContent extends StatelessWidget {
         const Divider(),
         SizedBox(height: d.at(16)),
         const CardItem(
-          icon: 'mismatch_red',
+          icon: 'compare',
+          iconBackgroundColor: AppColors.red,
           label: 'Location mismatch',
           value: '2',
         ), //Location Mismatch
@@ -145,7 +154,8 @@ class ExceptionReportContent extends StatelessWidget {
         const Divider(),
         SizedBox(height: d.at(16)),
         const CardItem(
-          icon: 'no_gps_red',
+          icon: 'gps_off',
+          iconBackgroundColor: AppColors.red,
           label: 'No GPS',
           value: '18',
         ), //No GPS
